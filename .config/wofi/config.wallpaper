@@ -1,0 +1,16 @@
+allow_images=true
+show=drun
+width=900           # Aumentei para dar mais espaço
+height=600
+always_parse_args=true
+show_all=true
+term=wezterm
+hide_scroll=true
+print_command=true
+insensitive=true
+columns=4           # Reduzi para 4 colunas para imagens maiores
+image_size=250       # AUMENTEI O TAMANHO DAS IMAGENS (era 250)
+orientation=vertical
+content_horizontal=left
+exec_search=true
+filter_rate=100
