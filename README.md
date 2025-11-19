@@ -18,6 +18,7 @@ The following folders correspond to the respective programs:
 | `cava`      | Cava – Audio visualizer                        |
 | `kitty`     | Kitty – Terminal emulator                      |
 | `wofi`      | Wofi – Application launcher / menu for Wayland |
+| `pywal`     | Pywal – Colorscheme generator from wallpapers  |
 
 ## Dependencies
 
@@ -33,8 +34,9 @@ To fully use these dotfiles, install the following programs:
 * **Fastfetch**
 * **Thunar**
 * **btop**
+* **Pywal**
 
-Depending on your distribution, additional packages like themes, icons, and fonts may be required.
+Depending on your distribution, additional packages like themes, icons, and fonts may also be required.
 
 ## How to Clone
 
@@ -65,5 +67,4 @@ ln -s ~/mydots/wofi ~/.config/wofi
 * Always back up your current configs before replacing them.
 * These configurations are optimized for a Wayland + Hyprland environment.
 * Some adjustments may be necessary depending on your distribution or hardware.
-
-
+* Pywal integration may require updating specific config files to dynamically load generated color schemes.
