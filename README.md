@@ -128,5 +128,3 @@ chmod +x ~/.config/waybar/scripts/*
 
 * Pywal integration may require updating specific config files to load generated colors.
 * Configurations are optimized for a Wayland + Hyprland environment and may require adjustments depending on your distribution or hardware.
-
-Só pedir!
