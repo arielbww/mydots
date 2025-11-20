@@ -24,7 +24,7 @@
 
 "modules-left": [
 	"custom/separator#blank",
-	"custom/tux",
+	"custom/arch",
 	"custom/separator#blank",
 	"hyprland/workspaces#rw",
 	],

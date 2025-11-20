@@ -1,215 +1,170 @@
+/* -----------------------------------------------------
+ * Color Variables & Pywal Integration
+ * ----------------------------------------------------- */
 @import url("/home/ariel/.cache/wal/colors-waybar.css");
-@define-color bar-bg rgba(15, 15, 22, 0.5);
-@define-color main-bg rgba(15, 15, 22, 0.5);
+
+/* Transparency settings to enable Hyprland's blur effect */
+@define-color bar-bg rgba(15, 15, 22, 0.35); 
+@define-color main-bg rgba(15, 15, 22, 0.65);
 @define-color main-fg @foreground;
+
 @define-color wb-act-bg @color2;
 @define-color wb-act-fg @background;
 @define-color wb-hvr-bg @color4;
 @define-color wb-hvr-fg @background;
 
+/* -----------------------------------------------------
+ * Global Reset & Font Settings
+ * ----------------------------------------------------- */
 * {
-  border: none;
-  border-radius: 0px;
-  font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", "monospace";
-  font-weight: bold;
-  font-size: 12px;
-  min-height: 20px;
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Symbols Nerd Font", monospace;
+    font-weight: bold;
+    font-size: 13px;
+    min-height: 0;
 }
 
+/* Main Window Configuration (Invisible background for floating effect) */
 window#waybar {
-  background: none;
+    background: transparent;
+    color: @main-fg;
 }
 
-#custom-tux {
-    font-size: 18px;
-    padding: 0 10px;
-    color: @color6; /* Cor do ícone */
-}
-
-.modules-center {
-  border-radius: 20px;
-  margin: 4px 0;
-  padding-left: 5px;
-  padding-right: 5px;
-  background: @bar-bg;
-}
-
-.modules-right {
-  border-radius: 20px;
-  margin: 4px 0;
-  margin-right: 4px;
-  padding-left: 5px;
-  padding-right: 5px;
-  background: @bar-bg;
+/* -----------------------------------------------------
+ * Module Styling (Floating Islands)
+ * ----------------------------------------------------- */
+.modules-left, .modules-center, .modules-right {
+    background-color: @bar-bg;
+    border-radius: 20px; /* Modern rounded corners */
+    
+    /* Margins to create floating effect */
+    margin-top: 5px;
+    margin-bottom: 0;
+    
+    padding: 4px 10px;
+    
+    /* Subtle border for contrast */
+    border: 1px solid rgba(255, 255, 255, 0.1); 
 }
 
 .modules-left {
-  border-radius: 20px;
-  margin: 4px 0;
-  margin-left: 4px;
-  padding-left: 15px;
-  padding-right: 5px;
-  background: @bar-bg;
+    margin-left: 12px;
 }
 
-tooltip {
-  background: @main-bg;
-  color: @main-fg;
-  border-radius: 7px;
-  border-width: 0px;
+.modules-right {
+    margin-right: 12px;
+}
+
+/* -----------------------------------------------------
+ * Workspace Configuration
+ * ----------------------------------------------------- */
+#workspaces {
+    background: transparent;
+    margin: 0;
+    padding: 0;
 }
 
 #workspaces button {
-  box-shadow: none;
-  text-shadow: none;
-  padding: 0px;
-  border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-left: 0px;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 0px;
-  color: @main-fg;
-  animation: ws_normal 20s ease-in-out 1;
+    background-color: transparent;
+    color: @main-fg;
+    padding: 0px 5px;
+    margin: 0 2px;
+    border-radius: 15px;
+    transition: all 0.3s ease;
+    opacity: 0.9;
 }
 
 #workspaces button.active {
-  background: @wb-act-bg;
-  color: @wb-act-fg;
-  margin-left: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-right: 3px;
-  animation: ws_active 20s ease-in-out 1;
-  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    background-color: @wb-act-bg;
+    color: @wb-act-fg;
+    padding-left: 12px;
+    padding-right: 12px;
+    opacity: 1;
+    min-width: 30px;
 }
 
 #workspaces button:hover {
-  background: @wb-hvr-bg;
-  color: @wb-hvr-fg;
-  animation: ws_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+    background-color: @wb-hvr-bg;
+    color: @wb-hvr-fg;
+    opacity: 1;
 }
 
-#taskbar button {
-  box-shadow: none;
-  text-shadow: none;
-  padding: 0px;
-  border-radius: 9px;
-  margin-top: 3px;
-  margin-bottom: 3px;
-  margin-left: 0px;
-  padding-left: 3px;
-  padding-right: 3px;
-  margin-right: 0px;
-  color: @wb-color;
-  animation: tb_normal 20s ease-in-out 1;
+#workspaces button.urgent {
+    background-color: @color1;
+    color: @background;
+    animation: flash 1s infinite;
 }
 
-#taskbar button.active {
-  background: @wb-act-bg;
-  color: @wb-act-color;
-  margin-left: 3px;
-  padding-left: 12px;
-  padding-right: 12px;
-  margin-right: 3px;
-  animation: tb_active 20s ease-in-out 1;
-  transition: all 0.4s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+/* -----------------------------------------------------
+ * Tooltips
+ * ----------------------------------------------------- */
+tooltip {
+    background: rgba(15, 15, 22, 0.95);
+    border: 1px solid @color2;
+    border-radius: 12px;
 }
 
-#taskbar button:hover {
-  background: @wb-hvr-bg;
-  color: @wb-hvr-color;
-  animation: tb_hover 20s ease-in-out 1;
-  transition: all 0.3s cubic-bezier(0.55, -0.68, 0.48, 1.682);
+tooltip label {
+    color: @main-fg;
+    padding: 5px;
 }
 
-#tray menu * {
-  min-height: 16px;
+/* -----------------------------------------------------
+ * Individual Module & Icon Styling
+ * ----------------------------------------------------- */
+#backlight, #battery, #bluetooth, #clock, #cpu, #memory, #network, 
+#pulseaudio, #taskbar, #tray, #window, #custom-updates, #custom-wallchange, 
+#custom-cliphist, #custom-power {
+    padding: 0 8px;
+    margin: 0;
+    color: @main-fg;
 }
 
-#tray menu separator {
-  min-height: 10px;
+/* Arch Linux Icon */
+#custom-arch {
+    font-size: 22px;
+    color: @color2;
+    padding-right: 10px;
+    margin-left: 4px;
 }
 
-#backlight,
-#battery,
-#bluetooth,
-#custom-cliphist,
-#clock,
-#custom-cpuinfo,
-#cpu,
-#custom-gpuinfo,
-#idle_inhibitor,
-#custom-keybindhint,
-#language,
-#memory,
-#mpris,
-#network,
-#custom-notifications,
-#custom-power,
-#pulseaudio,
-#custom-spotify,
-#taskbar,
-#custom-theme,
-#tray,
-#custom-updates,
-#custom-wallchange,
-#custom-wbar,
-#window,
-#workspaces,
-#custom-l_end,
-#custom-r_end,
-#custom-sl_end,
-#custom-sr_end,
-#custom-rl_end,
-#custom-rr_end {
-  color: @main-fg;
-  background: none;
-  opacity: 1;
-  margin: 4px 0px 4px 0px;
-  padding-left: 4px;
-  padding-right: 4px;
+/* Hide legacy separators (Glyphs) to maintain clean aesthetic */
+#custom-l_end, #custom-r_end, #custom-sl_end, #custom-sr_end, 
+#custom-rl_end, #custom-rr_end {
+    opacity: 0;
+    padding: 0;
+    margin: 0;
+    border: 0;
+    font-size: 0;
 }
 
-#workspaces,
-#taskbar {
-  padding: 0px;
+/* Battery States */
+#battery.charging, #battery.plugged {
+    color: @color2;
+}
+#battery.critical:not(.charging) {
+    color: @color1;
+    animation: blink 0.5s linear infinite alternate;
 }
 
-#custom-r_end {
-  border-radius: 0px 21px 21px 0px;
-  margin-right: 9px;
-  padding-right: 3px;
+/* System Tray */
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+    background-color: @color1;
 }
 
-#custom-l_end {
-  border-radius: 21px 0px 0px 21px;
-  margin-left: 9px;
-  padding-left: 3px;
+/* -----------------------------------------------------
+ * Animation Definitions
+ * ----------------------------------------------------- */
+@keyframes blink {
+    to { color: #ffffff; }
 }
-
-#custom-sr_end {
-  border-radius: 0px;
-  margin-right: 9px;
-  padding-right: 3px;
-}
-
-#custom-sl_end {
-  border-radius: 0px;
-  margin-left: 9px;
-  padding-left: 3px;
-}
-
-#custom-rr_end {
-  border-radius: 0px 7px 7px 0px;
-  margin-right: 9px;
-  padding-right: 3px;
-}
-
-#custom-rl_end {
-  border-radius: 7px 0px 0px 7px;
-  margin-left: 9px;
-  padding-left: 3px;
+@keyframes flash {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
 }
