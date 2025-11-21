@@ -31,13 +31,6 @@
 	"tooltip-format": "File Manager",
 },
 
-"custom/tty": {
-	"format": " ",
-	"on-click": "$HOME/.config/hypr/scripts/WaybarScripts.sh --term",
-	"tooltip": true,
-	"tooltip-format": "Launch Terminal",
-},
-
 "custom/browser": {
 	"format": " ",
 	"on-click": "xdg-open https://",

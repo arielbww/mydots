@@ -202,8 +202,9 @@
 		"class<eu.betterbird.Betterbird>": " ",
 		"title<.*gmail.*>": "󰊫 ",
 
-		"class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
+		"class<[Tt]elegram-desktop|org.telegram.desktop|io.github.tdesktop_x64.TDesktop>": " ",
 		"class<discord|[Ww]ebcord|Vesktop>": " ",
+		"title<.*Telegram.*>": " ",
 		"title<.*whatsapp.*>": " ",
 		"title<.*zapzap.*>": " ",
 		"title<.*messenger.*>": " ",
